@@ -16,12 +16,12 @@ function handleDeleteProduct(id){
           <img
             src={product?.imageUrl}
             alt={product?.name}
-            className="overflow-hidden rounded-t h-18 w-full"
+            className="overflow-hidden rounded-t w-full h-28"
           />
           <div className="p-1">
             <h4>{product?.name}</h4>
             <p>${product?.price}</p>
-            <p>{product?.description}</p>
+            <p className="line-clamp-3">{product?.description}</p>
             <div className="flex space-x-2 mt-2">
               <PenBox
                 size={18}
