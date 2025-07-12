@@ -1,7 +1,8 @@
 import { Button } from "@radix-ui/themes";
 import React from "react";
+import { toast } from "sonner";
 
-function ConfirmModal({ setShowModal, productId }) {
+function ConfirmModal({ setShowModal, productId, refreshProducts }) {
   async function deleteProduct(id) {
     try {
       const response = await fetch(`http://localhost:3000/api/products/${id}`, {
@@ -14,6 +15,8 @@ function ConfirmModal({ setShowModal, productId }) {
 
       if (response.ok) {
         console.log("Product Deleted Successfully!");
+        refreshProducts();
+        toast("Product Deleted Successfully!")
       }
       return data.product;
     } catch (error) {

@@ -48,12 +48,17 @@ function HomePage() {
                 product={product}
                 setShowModal={setShowModal}
                 setProductId={setProductId}
+                refreshProducts={getAllProducts}
               />
             ))}
         </div>
       </div>
       {showModal && (
-        <ConfirmModal setShowModal={setShowModal} productId={productId} />
+        <ConfirmModal
+          setShowModal={setShowModal}
+          productId={productId}
+          refreshProducts={getAllProducts}
+        />
       )}
     </div>
   );
